@@ -16,7 +16,7 @@ const Counter = ({ target, label, icon }) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
 
-          let start = 0;
+          // let start = 0;
           const duration = 2000;
           const startTime = performance.now();
 
