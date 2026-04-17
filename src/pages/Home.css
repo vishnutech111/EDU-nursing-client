@@ -712,11 +712,13 @@
   .universities h2 {
     font-size: 24px;
     text-align: center;
+    margin-right: 10px;
   }
 
   .card-container {
     grid-template-columns: 1fr;
     /* margin-left: 20px; */
+    margin-right: 10px;
   }
 
   .card-image img {
