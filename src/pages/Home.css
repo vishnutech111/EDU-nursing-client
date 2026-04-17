@@ -706,13 +706,14 @@
 @media (max-width: 576px) {
   .universities {
     padding: 50px 15px;
-    margin-left: 30px;
+    margin-left: 25px;
   }
 
   .universities h2 {
     font-size: 24px;
     text-align: center;
     /* margin-right: 40px; */
+    margin-right: 10px;
   }
 
   .card-container {
