@@ -706,19 +706,19 @@
 @media (max-width: 576px) {
   .universities {
     padding: 50px 15px;
-    margin-left: 40px;
+    margin-left: 20px;
   }
 
   .universities h2 {
     font-size: 24px;
     text-align: center;
-    margin-right: 40px;
+    /* margin-right: 40px; */
   }
 
   .card-container {
     grid-template-columns: 1fr;
     /* margin-left: 20px; */
-    margin-right: 40px;
+    /* margin-right: 40px; */
   }
 
   .card-image img {
