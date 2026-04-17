@@ -716,7 +716,7 @@
 
   .card-container {
     grid-template-columns: 1fr;
-    margin-left: 20px;
+    /* margin-left: 20px; */
   }
 
   .card-image img {
