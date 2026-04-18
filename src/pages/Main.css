@@ -262,7 +262,7 @@
   border-top-right-radius: 40px;
   position: relative;
   padding: 100px 20px;
-
+  
   /* White + cooling dark gradient */
   background: linear-gradient(
     135deg,
@@ -302,7 +302,8 @@
   display: flex;
   gap: 30px;
   max-width: 1000px;
-  margin: auto;
+  /* margin: auto; */
+  margin-left: 0cm;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -311,7 +312,7 @@
 .mv-box {
   flex: 1;
   min-width: 280px;
-
+  margin-right: 20x;
   padding: 40px;
   border-radius: 20px;
 

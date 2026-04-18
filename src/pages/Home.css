@@ -361,6 +361,8 @@
   padding: 10px 20px;
   background: linear-gradient(135deg, #0f2027, #203a43);
   color: white;
+  border-bottom-left-radius: 80px;
+border-bottom-right-radius: 80px;
 }
 
 /* CONTAINER */
