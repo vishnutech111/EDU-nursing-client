@@ -1,118 +1,66 @@
+
+
+
 // import React, { useEffect, useState } from "react";
 // import "./Services.css";
-// import axios from "axios";
-// import { motion } from "framer-motion";
+// // import { motion } from "framer-motion";
+// import vedio from "../assets/EDU INDIAN F OUT 1.mp4"
+// const slides = [
+//   {
+//      image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+//      title: "BSc Nursing",
+//      desc: "Top colleges with full admission guidance",
+//    },
+//    {
+//      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
+//      title: "GNM Nursing",
+//      desc: "Affordable diploma nursing programs",
+//    },
+//    {
+//      image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b",
+//     title: "MSc Nursing",
+//     desc: "Advance your healthcare career",
+//   },
+//    {
+//      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+//      title: "Admission Support",
+//      desc: "Complete end-to-end guidance",
+//   },
+// ];
 
 // const Services = () => {
-//   const [universities, setUniversities] = useState([]);
-//   const [selectedUni, setSelectedUni] = useState(null);
+//   const [current, setCurrent] = useState(0);
 
+//   // Auto slide every 4 seconds
 //   useEffect(() => {
-//     fetchUniversities();
+//     const interval = setInterval(() => {
+//       setCurrent((prev) => (prev + 1) % slides.length);
+//     }, 4000);
+
+//     return () => clearInterval(interval);
 //   }, []);
 
-//   const fetchUniversities = async () => {
-//     try {
-//       const res = await axios.get("http://localhost:5000/api/universities");
-//       setUniversities(res.data);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
-
 //   return (
-//     <div className="services-container">
+//     <div className="srv-page">
 
-//       {/* HERO */}
-//       <div className="services-hero">
-//         <div className="overlay"></div>
-//         <motion.h1
-//           initial={{ opacity: 0, y: -50 }}
-//           animate={{ opacity: 1, y: 0 }}
-//         >
-//           Our Services
-//         </motion.h1>
+//       {/* ===== Vertical Carousel ===== */}
+//       <div className="vertical-carousel">
+//         {slides.map((slide, index) => (
+//           <div
+//             key={index}
+//             className={`v-slide ${index === current ? "active" : ""}`}
+//             style={{ backgroundImage: `url(${slide.image})` }}
+//           >
+//             <div className="v-overlay">
+//               <h1>{slide.title}</h1>
+//               <p>{slide.desc}</p>
+//             </div>
+//           </div>
+//         ))}
 //       </div>
 
-//       {/* COMPANY SERVICES */}
-//       <div className="service-info">
-//         <h2>What We Offer</h2>
-
-//         <div className="service-cards">
-//           <div className="card">
-//             <h3>Nursing Admission Guidance</h3>
-//             <p>
-//               Complete support for BSc Nursing, GNM, PBBSc, and MSc Nursing admissions.
-//             </p>
-//           </div>
-
-//           <div className="card">
-//             <h3>University Tie-ups</h3>
-//             <p>
-//               Direct admission support in top universities across Tamil Nadu & Karnataka.
-//             </p>
-//           </div>
-
-//           <div className="card">
-//             <h3>Career Counseling</h3>
-//             <p>
-//               Expert advice to choose the right nursing course and college.
-//             </p>
-//           </div>
-
-//           <div className="card">
-//             <h3>End-to-End Support</h3>
-//             <p>
-//               From application to admission confirmation – we handle everything.
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* UNIVERSITIES LIST */}
-//       <div className="university-section">
-//         <h2>Select University</h2>
-
-//         <div className="university-list">
-//           {universities.map((uni) => (
-//             <motion.div
-//               key={uni._id}
-//               className="university-card"
-//               whileHover={{ scale: 1.05 }}
-//               onClick={() => setSelectedUni(uni)}
-//             >
-//               {uni.name}
-//             </motion.div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* DETAILS */}
-//       {selectedUni && (
-//         <motion.div
-//           className="university-details"
-//           initial={{ opacity: 0 }}
-//           animate={{ opacity: 1 }}
-//         >
-//           <h2>{selectedUni.name}</h2>
-//           <p><strong>State:</strong> {selectedUni.state}</p>
-//           <p><strong>City:</strong> {selectedUni.city}</p>
-
-//           <h3>Courses</h3>
-
-//           <div className="course-list">
-//             {selectedUni.courses.map((course, index) => (
-//               <div className="course-card" key={index}>
-//                 <h4>{course.courseName}</h4>
-//                 <p>{course.institute}</p>
-//                 <span>{course.category}</span>
-//               </div>
-//             ))}
-//           </div>
-//         </motion.div>
-//       )}
-
-//     </div>
+      
+// </div>
 //   );
 // };
 
@@ -120,76 +68,213 @@
 
 
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Services.css";
-
-const carouselImages = [
-  "https://images.unsplash.com/photo-1584515933487-779824d29309", // nursing
-  "https://images.unsplash.com/photo-1581595219315-a187dd40c322", // hospital
-  "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d"  // medical students
-];
-
-const dummyBlogs = [
+import h1 from "../assets/Dhanalakshmi.png";
+import h2 from "../assets/MGR.png";
+import h3 from "../assets/RGU.png";
+import UniversityCard from "../components/UniversityCard";
+import UniversityTable from "../components/UniversityTable";
+const slides = [
   {
-    title: "Why Choose BSc Nursing?",
-    desc: "BSc Nursing offers strong career opportunities in hospitals, abroad jobs, and government sectors...",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+    title: "BSc Nursing",
+    desc: "Top colleges with full admission guidance",
   },
   {
-    title: "Top Nursing Colleges in India",
-    desc: "Explore the best nursing colleges in Tamil Nadu and Karnataka with high placement success...",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
+    title: "GNM Nursing",
+    desc: "Affordable diploma nursing programs",
   },
   {
-    title: "Nursing Career Opportunities",
-    desc: "Nursing graduates can work in hospitals, clinics, research centers, and international healthcare sectors...",
+    image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b",
+    title: "MSc Nursing",
+    desc: "Advance your healthcare career",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    title: "Admission Support",
+    desc: "Complete end-to-end guidance",
   },
 ];
 
 const Services = () => {
   const [current, setCurrent] = useState(0);
+  const imageRef = useRef();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % carouselImages.length);
-    }, 3000);
-
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
+  // 🔥 3D rotate on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const rotate = window.scrollY * 0.05;
+      if (imageRef.current) {
+        imageRef.current.style.transform = `rotateY(${rotate}deg) rotateX(${rotate / 2}deg)`;
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+
+
+
+  useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  }, 10000);
+
+  return () => clearInterval(interval);
+}, []);
+
+
+useEffect(() => {
+  const handleScroll = () => {
+    const cards = document.querySelectorAll(".uni-card img");
+
+    cards.forEach((img) => {
+      const rect = img.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      let visible = 1 - Math.abs(rect.top / windowHeight);
+
+      let scale = 1 + visible * 0.15; // smooth zoom
+      img.style.transform = `scale(${scale})`;
+    });
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
   return (
-    <div className="blog-page">
+    <div className="srv-page">
 
-      {/* Vertical Carousel */}
-      <div className="vertical-carousel">
-        {carouselImages.map((img, index) => (
-          <div
-            key={index}
-            className={`v-slide ${index === current ? "active" : ""}`}
-            style={{ backgroundImage: `url(${img})` }}
-          ></div>
-        ))}
-
-        <div className="v-overlay">
-          <h1>EduNursing Blog</h1>
-          <p>Latest Updates & Nursing Career Insights</p>
+      {/* ===== Carousel ===== */}
+     <div className="horizontal-carousel">
+  <div
+    className="h-track"
+    style={{ transform: `translateX(-${current * 100}%)` }}
+  >
+    {slides.map((slide, index) => (
+      <div
+        key={index}
+        className="h-slide"
+        style={{ backgroundImage: `url(${slide.image})` }}
+      >
+        <div className="h-overlay">
+          <h1>{slide.title}</h1>
+          <p>{slide.desc}</p>
         </div>
       </div>
+    ))}
+  </div>
+</div>
 
-      {/* Blog Section */}
-      <section className="blog-section">
-        <h2>Latest Articles</h2>
+      {/* ===== EduNursing Service Section ===== */}
+      <section className="edu-section">
 
-        <div className="blog-grid">
-          {dummyBlogs.map((blog, index) => (
-            <div className="blog-card" key={index}>
-              <h3>{blog.title}</h3>
-              <p>{blog.desc}</p>
-              <button>Read More</button>
-            </div>
-          ))}
+        <div className="edu-container">
+
+          {/* LEFT CONTENT */}
+          <div className="edu-content">
+            <h2>EduNursing Admission Services</h2>
+
+            <p>
+              EduNursing is a leading nursing admission guidance platform in India,
+              helping students secure seats in top nursing colleges across Tamil Nadu,
+              Karnataka, and other states. With years of experience in the education
+              sector, we provide complete support for students who want to build a
+              successful career in the healthcare industry.
+            </p>
+
+            <p>
+              Our services are designed to simplify the admission process and ensure
+              that students make the right decisions for their future. From selecting
+              the best college to completing documentation and securing admission,
+              our expert team guides you at every step.
+            </p>
+
+            <ul>
+              <li>✔ BSc Nursing Admission Guidance</li>
+              <li>✔ GNM & Diploma Nursing Programs</li>
+              <li>✔ MSc Nursing Advanced Courses</li>
+              <li>✔ Direct Admission in Top Colleges</li>
+              <li>✔ Education Loan Assistance</li>
+              <li>✔ Hostel & Accommodation Support</li>
+              <li>✔ Career Counseling & Placement Guidance</li>
+              <li>✔ 100% Transparent Process</li>
+            </ul>
+
+            <p>
+              We collaborate with reputed universities and institutions to provide
+              students with high-quality education and practical clinical exposure.
+              Our goal is to ensure that every student achieves academic excellence
+              and builds a strong foundation for a successful nursing career.
+            </p>
+
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="edu-image" ref={imageRef}>
+            <img
+              src="https://images.unsplash.com/photo-1584515933487-779824d29309"
+              alt="EduNursing"
+            />
+          </div>
+
         </div>
       </section>
 
+
+    <section className="uni-section">
+  <h2 className="uni-title">Top Universities</h2>
+
+  <div className="uni-scroll">
+
+    <div className="">
+     <UniversityCard
+      image={h1}
+      name="Dhanalakshmi Srinivasan University"
+      location="Tamil Nadu, India"
+      description="Well-known university offering quality nursing education."
+      link="/dhanalakshmi-university"
+    />
     </div>
+
+    <div className="">
+     <UniversityCard
+      image={h2}
+      name="The Tamil Nadu Dr. M.G.R. Medical University"
+      location="Chennai, India"
+      description="Top medical university with recognized nursing programs."
+      link="/mgr-university"
+    />
+    </div>
+
+    <div className="">
+      <UniversityCard
+      image={h3}
+      name="Rajiv Gandhi University of Health Sciences"
+      location="Karnataka, India"
+      description="Premier university with strong hospital training."
+      link="/rajiv-gandhi-university"
+    />
+    </div>
+
+  </div>
+</section>
+
+<UniversityTable />
+    </div>
+    
   );
 };
 

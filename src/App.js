@@ -25,7 +25,7 @@
 // export default App;
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import AddGallery from "./admin/AddGallery";
 import AddBlog from "./admin/AddBlog";
 import Dashboard from "./admin/Dashboard";
@@ -40,6 +40,7 @@ import MGR from "./components/MGR";
 import Dhanalakshmi from "./components/Dhanalakshmi";
 import RajivGandhi from "./components/RajivGandhi";
 import MainPage from "./pages/MainPage";
+import Footer from "./components/Footer";
 
 /* COMPONENTS */
 
@@ -53,6 +54,8 @@ import MainPage from "./pages/MainPage";
 
 function App() {
   return (
+
+    
     <Router>
       
       {/* Navbar */}
@@ -78,8 +81,11 @@ function App() {
         <Route path="/add-gallery" element={<AddGallery />} />
 
       </Routes>
-
+<Footer />
     </Router>
+
+    
+    
   );
 }
 

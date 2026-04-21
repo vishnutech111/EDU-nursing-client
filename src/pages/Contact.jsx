@@ -1,133 +1,150 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Contact.css";
-import { motion } from "framer-motion";
-import axios from "axios";
+
+const slides = [
+  {
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+    title: "Contact EduNursing",
+    desc: "We are here to guide your nursing career",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
+    title: "Reach Top Colleges",
+    desc: "Tamil Nadu & Karnataka Admissions",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b",
+    title: "Start Your Journey",
+    desc: "Connect with our expert counselors",
+  },
+];
 
 const Contact = () => {
+  const [current, setCurrent] = useState(0);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      await axios.post("http://localhost:5000/api/contact", form);
-      alert("Message Sent Successfully!");
-      setForm({ name: "", email: "", phone: "", message: "" });
-    } catch (err) {
-      console.error(err);
-      alert("Error sending message");
-    }
+    const subject = "New Inquiry from EduNursing Website";
+    const body = `
+Name: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone}
+
+Message:
+${form.message}
+    `;
+
+    window.location.href = `mailto:eduindiannursingacademy@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   return (
-    <div className="contact-container">
+    <div className="contact-page">
 
-      {/* HERO */}
-      <div className="contact-hero">
-        <div className="overlay"></div>
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          Contact Us
-        </motion.h1>
-      </div>
-
-      {/* MAIN SECTION */}
-      <div className="contact-content">
-
-        {/* LEFT INFO */}
-        <motion.div
-          className="contact-info"
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
-          <h2>Get In Touch</h2>
-
-          <p>
-            Reach out to EduNursing for nursing admission guidance in Tamil Nadu
-            and Karnataka. Our team is ready to assist you.
-          </p>
-
-          <p><strong>📍 Location:</strong> Tamil Nadu & Karnataka</p>
-          <p><strong>📞 Phone:</strong> +91 9876543210</p>
-          <p><strong>📧 Email:</strong> edunursing@gmail.com</p>
-
-          <div className="contact-buttons">
-            <a
-              href="https://wa.me/919876543210"
-              target="_blank"
-              rel="noreferrer"
-              className="btn whatsapp"
-            >
-              WhatsApp
-            </a>
-
-            <a
-              href="mailto:edunursing@gmail.com"
-              className="btn email"
-            >
-              Email Us
-            </a>
+      {/* ===== CAROUSEL ===== */}
+      <div className="contact-carousel">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`contact-slide ${index === current ? "active" : ""}`}
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="contact-overlay">
+              <h1>{slide.title}</h1>
+              <p>{slide.desc}</p>
+            </div>
           </div>
-        </motion.div>
-
-        {/* FORM */}
-        <motion.form
-          className="contact-form"
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            type="text"
-            name="phone"
-            placeholder="Your Phone"
-            value={form.phone}
-            onChange={handleChange}
-            required
-          />
-
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="5"
-            value={form.message}
-            onChange={handleChange}
-            required
-          ></textarea>
-
-          <button type="submit">Send Message</button>
-        </motion.form>
-
+        ))}
       </div>
+
+      {/* ===== CONTACT INFO + FORM ===== */}
+      <section className="contact-section-new">
+        <div className="contact-container-new">
+
+          {/* LEFT */}
+          <div className="contact-image">
+            <img
+              src="https://images.unsplash.com/photo-1584515933487-779824d29309"
+              alt="contact"
+            />
+          </div>
+
+          {/* RIGHT */}
+          <div className="contact-content-new glass">
+            <h2>Get In Touch</h2>
+
+            <p>
+              Contact us for nursing admissions guidance across Tamil Nadu and Karnataka.
+            </p>
+
+            <ul>
+              <li>📍 Kozhikode, Kerala</li>
+              <li>📞 9567453535</li>
+              <li>📧 eduindiannursingacademy@gmail.com</li>
+            </ul>
+
+            {/* ===== FORM ===== */}
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                onChange={handleChange}
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                onChange={handleChange}
+              />
+
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                required
+                onChange={handleChange}
+              />
+
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows="4"
+                required
+                onChange={handleChange}
+              ></textarea>
+
+              <button type="submit" className="contact-btn">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </section>
 
     </div>
   );
