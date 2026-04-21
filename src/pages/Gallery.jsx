@@ -71,7 +71,7 @@
 import React, { useEffect, useState } from "react";
 import "./Gallery.css";
 import axios from "axios";
-import B1 from "../assets/nursing3.png";
+import B1 from "../assets/home2.png";
 import B2 from "../assets/home2.png";
 import B3 from "../assets/nursing2.png"
 const carouselImages = [

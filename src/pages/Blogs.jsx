@@ -87,7 +87,7 @@ import "./Blogs.css";
 import axios from "axios";
 import N1 from "../assets/nursing1.png";
 import N2 from "../assets/nursing2.png";
-import N3 from "../assets/nursing3.png"
+import N3 from "../assets/home.png"
 const carouselImages = [
  N1,
 N2,
