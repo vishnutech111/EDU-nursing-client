@@ -57,12 +57,14 @@
 .v-overlay h1 {
   font-size: 3rem;
   animation: fadeUp 1s ease;
+  
 }
 
 .v-overlay p {
   margin-top: 10px;
   font-size: 1.2rem;
   animation: fadeUp 1.3s ease;
+  
 }
 
 /* Animation */
@@ -422,6 +424,9 @@
   .mv-box p {
     font-size: 0.9rem;
   }
+
+
+
 }
 
 

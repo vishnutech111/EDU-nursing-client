@@ -25,7 +25,7 @@
 // export default App;
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,} from "react-router-dom";
 import AddGallery from "./admin/AddGallery";
 import AddBlog from "./admin/AddBlog";
 import Dashboard from "./admin/Dashboard";
