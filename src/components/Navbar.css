@@ -29,11 +29,35 @@
 }
 
 /* Logo */
-.logo {
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  transition: 0.3s;
+
+ .logo {
+  display: flex;
+  align-items: center;
+  /* margin-top: 20px; */
+}
+
+
+.logo img {
+  height: 60px;   /* perfect navbar size */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 25px;
+}
+
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 50px;
+    margin-top: 25px;
+  }
+}
+
+
+/* Hover effect (premium feel) */
+.logo img:hover {
+  transform: scale(1.05);
 }
 
 /* Links */

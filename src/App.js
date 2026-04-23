@@ -41,6 +41,7 @@ import Dhanalakshmi from "./components/Dhanalakshmi";
 import RajivGandhi from "./components/RajivGandhi";
 import MainPage from "./pages/MainPage";
 import Footer from "./components/Footer";
+import LeadPopup from "./components/LeadPopup";
 
 /* COMPONENTS */
 
@@ -60,7 +61,7 @@ function App() {
       
       {/* Navbar */}
       <Navbar />
-
+       <LeadPopup />
       {/* Routes */}
       <Routes>
 

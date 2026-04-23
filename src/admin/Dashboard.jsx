@@ -14,7 +14,7 @@ const Dashboard = () => {
 
       {/* SIDEBAR */}
       <div className={`sidebar ${toggle ? "open" : "close"}`}>
-        {/* <h2 className="logo">EduNursing</h2> */}
+        <h2 >EduNursing</h2>
 
         <ul>
           <li

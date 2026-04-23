@@ -218,7 +218,10 @@ const [current, setCurrent] = useState(0);
              Get admission in top nursing universities with expert guidance and
             100% support.
           </p>
-          <button>Explore Services</button>
+          {/* <button>Explore Services</button> */}
+          <Link to="/services">
+    <button>Explore Services</button>
+  </Link>
         </div>
       </section>
 
@@ -309,7 +312,7 @@ const [current, setCurrent] = useState(0);
             achieve your dream in healthcare.
           </p>
 
-          <Link to="/contact" className="btn primary">
+          <Link to="/about" className="btn primary">
             Read More
           </Link>
         </motion.div>

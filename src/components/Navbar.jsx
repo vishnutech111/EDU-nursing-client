@@ -58,7 +58,7 @@
 
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
-
+import logo from "../assets/EDU logo PNG.png"
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [scale, setScale] = useState(1);
@@ -95,7 +95,11 @@ const Navbar = () => {
       <div className="nav-container">
 
         {/* Logo */}
-        <h2 className="logo">Edunursing</h2>
+        {/* <h2 className="logo">Edunursing</h2> */}
+
+        <div className="logo">
+  <img src={logo} alt="Edunursing Logo" />
+</div>
 
         {/* Desktop Menu */}
         <ul className="nav-links">
