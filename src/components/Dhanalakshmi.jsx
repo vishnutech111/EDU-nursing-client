@@ -96,7 +96,10 @@ const Dhanalakshmi = () => {
       </div>
 
       {/* APPLY */}
-      <button className="apply-btn">Apply Now</button>
+      {/* <button className="apply-btn">Contact Now</button> */}
+      <a href="tel:+919567453535" className="apply-btn">
+  Contact Now
+</a>
 
     </div>
   );

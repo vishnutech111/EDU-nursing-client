@@ -73,26 +73,30 @@ import "./Services.css";
 import h1 from "../assets/Dhanalakshmi.png";
 import h2 from "../assets/MGR.png";
 import h3 from "../assets/RGU.png";
+import s from  "../assets/serviceimg.png"
+import s1 from "../assets/serviceimg1.png"
+import s2 from "../assets/serviceimg2.png"
+import s3 from "../assets/serviceimg3.png"
 import UniversityCard from "../components/UniversityCard";
 import UniversityTable from "../components/UniversityTable";
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+    image: s1,
     title: "BSc Nursing",
     desc: "Top colleges with full admission guidance",
   },
   {
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
+    image: s,
     title: "GNM Nursing",
     desc: "Affordable diploma nursing programs",
   },
   {
-    image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b",
+    image: s2,
     title: "MSc Nursing",
     desc: "Advance your healthcare career",
   },
   {
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    image: s3,
     title: "Admission Support",
     desc: "Complete end-to-end guidance",
   },

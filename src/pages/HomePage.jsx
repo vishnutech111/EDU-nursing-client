@@ -162,8 +162,8 @@ const imageRef = useRef();
     },
     {
       icon: <FaPassport />,
-      title: "Visa Assistance",
-      content: "Full visa and documentation support."
+      title: "Education Loan Assistance",
+      content: "Complete financial support guidance."
     },
     {
       icon: <FaBriefcase />,
