@@ -91,7 +91,7 @@ const Gallery = () => {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/gallery");
+      const res = await axios.get("https://edu-nursing-server.onrender.com/api/gallery");
       setImages(res.data);
     } catch (err) {
       console.error(err);

@@ -66,7 +66,7 @@ const AddBlog = () => {
         imageUrl = await uploadImageToCloudinary(image);
       }
 
-      await axios.post("http://localhost:5000/api/blogs", {
+      await axios.post("https://edu-nursing-server.onrender.com/api/blogs", {
         ...form,
         image: imageUrl,
       });

@@ -57,7 +57,7 @@ const AddGallery = () => {
         imageUrl = await uploadImageToCloudinary(image);
       }
 
-      await axios.post("http://localhost:5000/api/gallery", {
+      await axios.post("https://edu-nursing-server.onrender.com/api/gallery", {
         title,
         image: imageUrl,
       });
@@ -112,3 +112,4 @@ const AddGallery = () => {
 };
 
 export default AddGallery;
+
