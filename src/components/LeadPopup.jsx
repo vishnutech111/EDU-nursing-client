@@ -56,10 +56,10 @@ useEffect(() => {
 
   if (isSubmitted) return;
 
-  // ✅ Show every 50 seconds
+  // ✅ Show every 30 seconds
   const interval = setInterval(() => {
     setShow(true);
-  }, 50000);
+  }, 30000);
 
   // Optional: first popup after 5 sec
   const firstTimer = setTimeout(() => {
