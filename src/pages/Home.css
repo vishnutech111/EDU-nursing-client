@@ -350,8 +350,83 @@
 }
 
 
+/* ===== REGISTER BUTTON WRAPPER ===== */
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
 
+/* ===== BUTTON STYLE ===== */
+.register-btn {
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
 
+  background: linear-gradient(135deg, #00c9a7, #007cf0);
+  border-radius: 50px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.register-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+  background: linear-gradient(135deg, #007cf0, #00c9a7);
+}
+
+/* CLICK EFFECT */
+.register-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===== MOBILE & TABLET RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .register-wrapper {
+    margin: 40px 0;
+  }
+
+  .register-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .register-wrapper {
+    margin: 30px 15px;
+  }
+
+  .register-btn {
+    width: 60%;              /* Full width button */
+    max-width: 300px;         /* Prevent too wide */
+    text-align: center;
+
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .register-btn {
+    width: 60%;
+    /* max-width: 100%; */
+
+    font-size: 0.9rem;
+    padding: 12px 15px;
+  }
+}
 
 
 
@@ -425,6 +500,12 @@ border-bottom-right-radius: 60px;
   padding: 15px;
   border-top: 1px solid rgba(255,255,255,0.2);
 }
+
+
+
+
+
+
 
 /* ================= SECTION ================= */
 .ultra-counter-section {
@@ -599,11 +680,58 @@ border-bottom-right-radius: 60px;
   }
 }
 
+/* WRAPPER */
+.ultra-counter-wrapper {
+  text-align: center;
+  padding-bottom: 20px;
+}
 
+/* BUTTON CONTAINER */
+.register-btn-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* BUTTON STYLE */
+.register-btn {
+  padding: 14px 35px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+
+  background: linear-gradient(135deg, #00c9a7, #00e6ff);
+  color: black;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  box-shadow: 0 10px 25px rgba(0, 255, 200, 0.3);
+}
+
+/* HOVER EFFECT */
+.register-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 255, 200, 0.6);
+}
+
+/* CLICK EFFECT */
+.register-btn:active {
+  transform: scale(0.95);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .register-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+}
 
 /* ================= UNIVERSITIES SECTION ================= */
 .universities {
-  padding: 80px 20px;
+  padding: 80px 90px;
   text-align: center;
   color: white;
 }
@@ -858,6 +986,52 @@ border-bottom-right-radius: 60px;
   }
 }
 
+
+
+/* CONTAINER */
+.service-register-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* BUTTON */
+.service-register-btn {
+  padding: 14px 35px;
+  font-size: 16px;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 50px;
+
+  background: linear-gradient(135deg, #00c9a7, #00e6ff);
+  color: #000;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  box-shadow: 0 10px 25px rgba(0, 255, 200, 0.3);
+}
+
+/* HOVER */
+.service-register-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 255, 200, 0.6);
+}
+
+/* CLICK */
+.service-register-btn:active {
+  transform: scale(0.95);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .service-register-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
 /* CTA */
 /* .cta {
   padding: 60px;
@@ -969,7 +1143,7 @@ color: #eee;
 
 /* PRIMARY BUTTON */
 .btn.primary {
-  background: linear-gradient(45deg, #00c9a7, #00ffcc);
+  background: linear-gradient(135deg, #00c9a7, #00e6ff);
   color: rgb(250, 249, 249);
   box-shadow: 0 0 15px rgba(0,255,204,0.6);
 }

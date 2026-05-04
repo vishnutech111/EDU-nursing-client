@@ -317,6 +317,15 @@ const [current, setCurrent] = useState(0);
           </Link>
         </motion.div>
       </div>
+
+      {/* ===== REGISTER BUTTON ===== */}
+<div className="register-wrapper">
+  <Link to="/contact">
+  <button  className="register-btn">
+    🚀 Register Now
+  </button>
+  </Link>
+</div>
     </section>
 
 
@@ -373,23 +382,44 @@ const [current, setCurrent] = useState(0);
 
       </div>
 
-      {/* STATS */}
-      {/* <div className="stats">
-        <div><h3>1000+</h3><p>Students</p></div>
-        <div><h3>50+</h3><p>Universities</p></div>
-        <div><h3>10+</h3><p>Countries</p></div>
-        <div><h3>95%</h3><p>Success Rate</p></div>
-      </div> */}
+      
 
     
 
-<div className="ultra-counter-section">
-  <Counter target={1000} label="Students Enrolled" icon={<FaUserGraduate />} />
-  <Counter target={50} label="Universities" icon={<FaUniversity />} />
-  <Counter target={10} label="Countries" icon={<FaGlobe />} />
-  <Counter target={95} label="Success Rate" icon={<FaChartLine />} />
-</div>
 
+
+
+
+<div className="ultra-counter-wrapper">
+
+  <div className="ultra-counter-section">
+    <Counter target={1000} label="Students Enrolled" icon={<FaUserGraduate />} />
+    <Counter target={50} label="Universities" icon={<FaUniversity />} />
+    <Counter target={10} label="Countries" icon={<FaGlobe />} />
+    <Counter target={95} label="Success Rate" icon={<FaChartLine />} />
+  </div>
+
+  {/* 🔥 REGISTER BUTTON */}
+  <div className="register-btn-container">
+
+
+    <Link to="/contact">
+    
+  
+    <button
+      className="register-btn"
+      onClick={() => {
+        document.getElementById("contact-section")?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }}
+    >
+      🚀 Register Now
+    </button>
+    </Link>
+  </div>
+
+</div>
     </section>
 
 
@@ -480,45 +510,60 @@ const [current, setCurrent] = useState(0);
       <section className="services">
       <h2>Our Services</h2>
 
-    
+    <div className="service-grid">
+  {servicesData.map((service, index) => (
+    <motion.div
+      key={index}
+      className={`service-box ${activeIndex === index ? "active" : ""}`}
+      whileHover={{ scale: 1.05 }}
+      onClick={() => toggleCard(index)}
+    >
+      <div className="icon">{service.icon}</div>
 
-      <div className="service-grid">
-        {servicesData.map((service, index) => (
+      <h3>{service.title}</h3>
+      <p>{service.desc}</p>
+
+      <AnimatePresence>
+        {activeIndex === index && (
           <motion.div
-            key={index}
-            className={`service-box ${activeIndex === index ? "active" : ""}`}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => toggleCard(index)}
+            className="service-details"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4 }}
           >
-            {/* ICON */}
-            <div className="icon">{service.icon}</div>
-
-            {/* TITLE */}
-            <h3>{service.title}</h3>
-            <p>{service.desc}</p>
-
-            {/* EXPAND AREA */}
-            <AnimatePresence>
-              {activeIndex === index && (
-                <motion.div
-                  className="service-details"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <ul>
-                    {service.details.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <ul>
+              {service.details.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
           </motion.div>
-        ))}
-      </div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  ))}
+</div>
+
+{/* 🔥 REGISTER BUTTON */}
+<div className="service-register-container">
+  <Link to="/contact">
+  <button
+    className="service-register-btn"
+   
+  >
+    🚀 Register Now
+  </button>
+  </Link>
+</div>
+
+      
     </section>
+
+
+
+
+
+
 
       {/* CTA */}
       {/* <section className="cta">

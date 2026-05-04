@@ -1,0 +1,130 @@
+/* PAGE */
+.details-page {
+  font-family: "Poppins", sans-serif;
+  background: #f5f7fa;
+}
+
+/* ===== HERO ===== */
+.uni-hero {
+  height: 55vh;
+  background: url("../assets/Dhanalakshmi.png")
+    center/cover no-repeat;
+  position: relative;
+}
+
+.uni-overlay {
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  text-align: center;
+}
+
+.uni-overlay h1 {
+  font-size: 2.5rem;
+}
+
+.uni-overlay p {
+  margin-top: 10px;
+}
+
+/* ===== CONTAINER ===== */
+.uni-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ===== GLASS CARD ===== */
+.glass-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.glass-card h3 {
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+/* LIST */
+.glass-card ul {
+  padding-left: 18px;
+}
+
+.glass-card ul li {
+  margin-bottom: 6px;
+}
+
+/* ===== COLLEGE CARDS ===== */
+.college-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.college-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.college-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.college-card h4 {
+  margin-bottom: 5px;
+}
+
+/* ===== BUTTON ===== */
+.apply-btn {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .uni-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .uni-hero {
+    height: 40vh;
+  }
+}

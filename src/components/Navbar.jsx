@@ -58,7 +58,7 @@
 
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
-import logo from "../assets/EDU logo PNG.png"
+import logo from "../assets/EDU logo WHITE.jpg.jpeg"
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [scale, setScale] = useState(1);

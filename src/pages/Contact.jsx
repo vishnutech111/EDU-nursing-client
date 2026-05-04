@@ -129,13 +129,13 @@ ${form.message}
                 onChange={handleChange}
               />
 
-              <textarea
+              {/* <textarea
                 name="message"
                 placeholder="Your Message"
                 rows="4"
                 required
                 onChange={handleChange}
-              ></textarea>
+              ></textarea> */}
 
               <button type="submit" className="contact-btn">
                 Send Message

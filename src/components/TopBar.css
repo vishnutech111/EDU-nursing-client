@@ -1,0 +1,49 @@
+/* ===== TOPBAR ===== */
+.topbar {
+  width: 100%;
+  background: #000; /* black theme */
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT */
+.topbar-left {
+  display: flex;
+  gap: 20px;
+}
+
+.topbar-left span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* RIGHT */
+.topbar-right {
+  display: flex;
+  gap: 15px;
+}
+
+.topbar-right a {
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+/* Hover effects */
+.topbar-right a:hover {
+  color: #00bcd4;
+  transform: scale(1.2);
+}
+
+/* ===== HIDE ON MOBILE ===== */
+@media (max-width: 768px) {
+  .topbar {
+    display: none;
+  }
+}

@@ -51,23 +51,24 @@ const LeadPopup = () => {
 
 
 useEffect(() => {
-  // ✅ Show after 5 seconds (every time page loads)
-  const timer = setTimeout(() => {
+  // ❌ If already submitted → never show again
+  const isSubmitted = localStorage.getItem("leadSubmitted");
+
+  if (isSubmitted) return;
+
+  // ✅ Show every 30 seconds
+  const interval = setInterval(() => {
+    setShow(true);
+  }, 30000);
+
+  // Optional: first popup after 5 sec
+  const firstTimer = setTimeout(() => {
     setShow(true);
   }, 5000);
 
-  // ✅ Exit Intent (every time)
-  const handleExit = (e) => {
-    if (e.clientY < 10) {
-      setShow(true);
-    }
-  };
-
-  document.addEventListener("mouseleave", handleExit);
-
   return () => {
-    clearTimeout(timer);
-    document.removeEventListener("mouseleave", handleExit);
+    clearInterval(interval);
+    clearTimeout(firstTimer);
   };
 }, []);
 
@@ -80,16 +81,22 @@ useEffect(() => {
     setShow(false);
   };
 
-  const handleWhatsApp = () => {
-    const message = encodeURIComponent(
-      "Hi, I am interested in nursing admission. Please guide me."
-    );
+ 
+const handleWhatsApp = () => {
+  const message = encodeURIComponent(
+    "Hi, I am interested in nursing admission. Please guide me."
+  );
 
-    window.open(
-      `https://wa.me/919567453535?text=${message}`,
-      "_blank"
-    );
-  };
+  // ✅ Stop popup permanently
+  localStorage.setItem("leadSubmitted", "true");
+
+  setShow(false);
+
+  window.open(`https://wa.me/919567453535?text=${message}`, "_blank");
+};
+
+
+
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -100,6 +107,11 @@ const handleSubmit = (e) => {
   const message = encodeURIComponent(
     `Hi, I am ${name}. My phone number is ${phone}. I am interested in nursing admission. Please guide me.`
   );
+
+  // ✅ Save flag → NEVER show popup again
+  localStorage.setItem("leadSubmitted", "true");
+
+  setShow(false); // close popup
 
   window.open(`https://wa.me/919567453535?text=${message}`, "_blank");
 };
