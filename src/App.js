@@ -43,7 +43,7 @@ import MainPage from "./pages/MainPage";
 import Footer from "./components/Footer";
 import LeadPopup from "./components/LeadPopup";
 import SocialIcons from "./components/SocialIcons";
-import TopBar from "./components/TopBar";
+
 
 /* COMPONENTS */
 
