@@ -189,62 +189,47 @@
 /* ===== SECTION ===== */
 .uni-section {
   position: relative;
-  padding: 80px 90px;
-  margin: 20px;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
- 
-  background: url("https://images.unsplash.com/photo-1584515933487-779824d29309")
-    center/cover no-repeat;
-
-  background-attachment: fixed;
+  padding: 60px 40px;
   overflow: hidden;
-  
+  color: #fff;
+  /* margin: 20px; */
 }
 
-/* ===== BLUR OVERLAY ===== */
+/* 🔥 Background Image with Blur */
 .uni-section::before {
   content: "";
   position: absolute;
-  inset: 0;
-
-  background: rgba(15, 23, 42, 0.65);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://images.unsplash.com/photo-1584515933487-779824d29309") no-repeat center center/cover;
+  filter: blur(8px);
+  transform: scale(1.1);
+  z-index: -2;
 }
 
-/* ===== GLOW EFFECT ===== */
+/* Dark overlay for readability */
 .uni-section::after {
   content: "";
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: rgba(0, 255, 255, 0.12);
-  filter: blur(100px);
-  top: -100px;
-  left: -100px;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
-/* ===== CONTENT ABOVE ===== */
-.uni-section > * {
-  position: relative;
-  z-index: 2;
-  border-radius: 10px;
-}
-
-/* ===== TITLE ===== */
+/* Title */
 .uni-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 32px;
   margin-bottom: 40px;
-  color: #fff;
+  font-weight: 700;
 }
 
-/* ===== SCROLL ===== */
+/* Scroll Container */
 .uni-scroll {
   display: flex;
   gap: 25px;
@@ -253,100 +238,59 @@
   padding-bottom: 10px;
 }
 
+/* Hide scrollbar */
 .uni-scroll::-webkit-scrollbar {
   display: none;
 }
 
-/* ===== CARD ===== */
-.uni-card {
+/* Card Wrapper */
+.uni-scroll > div {
   min-width: 300px;
-  
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-
-  border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.15);
-
-  overflow: hidden;
-  transition: 0.4s;
+  flex-shrink: 0;
 }
 
-/* ===== IMAGE ===== */
-.uni-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-
-  transition: transform 0.5s ease;
-}
-
-/* ===== HOVER ===== */
-.uni-card:hover img {
-  transform: scale(1.1);
-}
-
-.uni-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-}
-
-/* ===== INFO ===== */
-.uni-info {
-  padding: 15px;
-}
-
-.uni-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  color: #fff;
-}
-
-.uni-info p {
-  font-size: 0.9rem;
-  color: #cbd5e1;
-}
-
-/* ===== TABLET ===== */
+/* Tablet Responsive */
 @media (max-width: 1024px) {
-  .uni-card {
+  .uni-section {
+    padding: 50px 30px;
+  }
+
+  .uni-title {
+    font-size: 28px;
+  }
+
+  .uni-scroll > div {
     min-width: 260px;
   }
-
-  .uni-title {
-    font-size: 2rem;
-  }
 }
 
-/* ===== MOBILE ===== */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .uni-section {
-    padding: 60px 15px;
-  }
-
-  .uni-card {
-    min-width: 280px;
-  }
-
-  .uni-card img {
-    height: 160px;
+    padding: 40px 20px;
   }
 
   .uni-title {
-    font-size: 1.8rem;
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .uni-scroll {
+    gap: 15px;
+  }
+
+  .uni-scroll > div {
+    min-width: 220px;
   }
 }
 
-/* ===== SMALL MOBILE ===== */
+/* Small Mobile */
 @media (max-width: 480px) {
-  .uni-card {
-    min-width: 180px;
+  .uni-title {
+    font-size: 20px;
   }
 
-  .uni-card img {
-    height: 140px;
-  }
-
-  .uni-info h3 {
-    font-size: 0.9rem;
+  .uni-scroll > div {
+    min-width: 200px;
   }
 }

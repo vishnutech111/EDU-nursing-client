@@ -1,35 +1,38 @@
 /* CARD */
 .university-card {
-  width: 300px;
+  width: 100%;
+  max-width: 320px; /* keeps nice size */
   border-radius: 15px;
   overflow: hidden;
   background: white;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   transition: 0.3s;
+  margin: auto; /* ✅ centers card */
 }
 
 /* IMAGE */
 .card-image img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
 /* CONTENT */
 .card-content {
-  padding: 15px;
+  padding: 18px;
   text-align: center;
 }
 
 .card-content h3 {
   margin: 10px 0;
   color: #080b0c;
+  font-size: 18px;
 }
 
 .location {
   font-size: 14px;
   color: #777;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .description {
@@ -51,4 +54,41 @@
 
 .apply-btn:hover {
   box-shadow: 0 0 10px #00c9a7;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center; /* ✅ centers cards horizontally */
+}
+@media (max-width: 992px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .university-card {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .university-card {
+    max-width: 100%;
+  }
+
+  .card-image img {
+    height: 180px;
+  }
+
+  .card-content h3 {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
 }

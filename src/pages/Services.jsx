@@ -158,6 +158,28 @@ useEffect(() => {
 }, []);
 
 
+
+
+
+  useEffect(() => {
+  const cards = document.querySelectorAll(".university-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+}, []);
+
+
+
   return (
     <div className="srv-page">
 
@@ -236,6 +258,9 @@ useEffect(() => {
 
         </div>
       </section>
+
+
+
 
 
     <section className="uni-section">

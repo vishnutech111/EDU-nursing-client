@@ -186,20 +186,29 @@ const [current, setCurrent] = useState(0);
 
 
 
+  useEffect(() => {
+  const cards = document.querySelectorAll(".university-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+}, []);
+
+
+
   return (
     <div className="home">
 
-      {/* HERO SECTION */}
-      {/* <section className="hero">
-        <div className="hero-content">
-          <h1>Start Your Nursing Career</h1>
-          <p>
-            Get admission in top nursing universities with expert guidance and
-            100% support.
-          </p>
-          <Link to="/contact" className="btn">Apply Now</Link>
-        </div>
-      </section> */}
+     
 
        <section className="carousel">
         {images.map((img, index) => (
@@ -425,34 +434,6 @@ const [current, setCurrent] = useState(0);
 
 
 
-      {/* UNIVERSITIES */}
-{/* <section className="universities">
-  <h2>Top Universities</h2>
-
-  <div className="card-container">
-    <UniversityCard
-      image={h1}
-      name="Dhanalakshmi Srinivasan University"
-      location="Tamil Nadu, India"
-      description="Well-known university offering quality nursing education with modern infrastructure and clinical exposure."
-    />
-
-    <UniversityCard
-      image={h2}
-      name="The Tamil Nadu Dr. M.G.R. Medical University"
-      location="Chennai, India"
-      description="One of the top medical universities in India providing recognized nursing programs and excellent academic standards."
-    />
-
-    <UniversityCard
-      image={h3}
-      name="Rajiv Gandhi University of Health Sciences"
-      location="Karnataka, India"
-      description="Premier health sciences university offering advanced nursing courses with strong hospital training support."
-    />
-  </div>
-</section> */}
-
 
 
 <section className="universities">
@@ -485,27 +466,7 @@ const [current, setCurrent] = useState(0);
   </div>
 </section>
 
-      {/* SERVICES
-      <section className="services">
-        <h2>Our Services</h2>
-
-        <div className="service-grid">
-          <div className="service-box">
-            <h3>Admission Guidance</h3>
-            <p>Step-by-step support for nursing admissions.</p>
-          </div>
-
-          <div className="service-box">
-            <h3>Easy Education Loan Assistance</h3>
-            <p>Complete visa documentation help.</p>
-          </div>
-
-          <div className="service-box">
-            <h3>Career Support</h3>
-            <p>Job and placement assistance.</p>
-          </div>
-        </div>
-      </section> */}
+     
 
       <section className="services">
       <h2>Our Services</h2>

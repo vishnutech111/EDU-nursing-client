@@ -259,13 +259,11 @@
 
 /* ===== Section Background ===== */
 .mission-vision {
-
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   position: relative;
   padding: 100px 20px;
-  
-  /* White + cooling dark gradient */
+
   background: linear-gradient(
     135deg,
     #ffffff,
@@ -276,51 +274,50 @@
   overflow: hidden;
 }
 
-/* Soft glowing effect */
-.mission-vision::before {
-  content: "";
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: rgba(0, 240, 255, 0.15);
-  filter: blur(120px);
-  top: -100px;
-  left: -100px;
-}
-
+/* Glow Effects */
+.mission-vision::before,
 .mission-vision::after {
   content: "";
   position: absolute;
   width: 400px;
   height: 400px;
-  background: rgba(255, 0, 150, 0.1);
   filter: blur(120px);
+}
+
+.mission-vision::before {
+  background: rgba(0, 240, 255, 0.15);
+  top: -100px;
+  left: -100px;
+}
+
+.mission-vision::after {
+  background: rgba(255, 0, 150, 0.1);
   bottom: -100px;
   right: -100px;
 }
 
-/* ===== Container ===== */
+/* ===== Container (FIXED CENTER) ===== */
 .mv-container {
   display: flex;
   gap: 30px;
-  max-width: 1000px;
-  
-  /* margin: auto; */
-  margin-left: 100px;
+  max-width: 1100px;
+
+  margin: 0 auto;              /* ✅ CENTER FIX */
+  justify-content: center;     /* center horizontally */
+  align-items: center;         /* center vertically */
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-/* ===== Glass Cards ===== */
+/* ===== Cards ===== */
 .mv-box {
   flex: 1;
+  max-width: 400px;            /* keeps cards nicely centered */
   min-width: 280px;
-  
+  height: 150px;
   padding: 40px;
   border-radius: 20px;
 
-  /* Glass Effect */
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 
@@ -329,18 +326,16 @@
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 
-  /* Animation */
   opacity: 0;
   transform: translateY(60px);
   animation: fadeUp 1s ease forwards;
 }
 
-/* Delay for second card */
 .mv-box:nth-child(2) {
   animation-delay: 0.3s;
 }
 
-/* Hover Premium Effect */
+/* Hover */
 .mv-box:hover {
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
@@ -357,7 +352,7 @@
   color: #1e293b;
 }
 
-/* ===== Animation ===== */
+/* Animation */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -365,55 +360,40 @@
   }
 }
 
-
-
-/* ===== TABLET (1024px) ===== */
+/* ===== TABLET ===== */
 @media (max-width: 1024px) {
-
   .mission-vision {
     padding: 80px 20px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
   }
 
   .mv-container {
-    max-width: 90%;
     gap: 20px;
-    margin: auto; /* fix alignment */
   }
 
   .mv-box {
+    max-width: 350px;
     padding: 30px;
   }
 
   .mv-box h3 {
     font-size: 1.6rem;
   }
-
-  .mv-box p {
-    font-size: 0.95rem;
-  }
 }
 
-
-/* ===== MOBILE (768px) ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-
   .mission-vision {
     padding: 60px 15px;
-    border-radius: 25px 25px 0 0;
   }
 
   .mv-container {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
   }
 
   .mv-box {
     width: 100%;
-    max-width: 200px;
-    
+    max-width: 320px;   /* ✅ proper mobile width */
     padding: 25px;
   }
 
@@ -424,22 +404,17 @@
   .mv-box p {
     font-size: 0.9rem;
   }
-
-
-
 }
 
-
-/* ===== SMALL MOBILE (480px) ===== */
+/* ===== SMALL MOBILE ===== */
 @media (max-width: 480px) {
-
   .mission-vision {
     padding: 50px 12px;
   }
 
   .mv-box {
+    /* max-width: 100%; */
     padding: 20px;
-    border-radius: 15px;
   }
 
   .mv-box h3 {
@@ -448,10 +423,8 @@
 
   .mv-box p {
     font-size: 0.85rem;
-    line-height: 1.5;
   }
 
-  /* Reduce glow size (performance + cleaner look) */
   .mission-vision::before,
   .mission-vision::after {
     width: 250px;
@@ -459,7 +432,6 @@
     filter: blur(80px);
   }
 }
-
 
 
 /* ===== Why Us ===== */
