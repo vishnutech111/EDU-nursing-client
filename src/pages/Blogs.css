@@ -146,3 +146,292 @@
     font-size: 1rem;
   }
 }
+
+
+
+
+/* =========================================
+   VIDEO CAROUSEL
+========================================= */
+
+.video-carousel {
+  position: relative;
+
+  width: 95%;
+  height: 90vh;
+
+  margin: 40px auto;   /* ✅ margin added */
+
+  border-radius: 30px; /* ✅ rounded corners */
+
+  overflow: hidden;
+
+  background-color: black;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* Slider */
+.video-slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.8s ease-in-out;
+}
+
+/* Each Slide */
+.video-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Video */
+.video-slide video {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+
+/* Overlay */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.45);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+
+  padding: 20px;
+}
+
+/* Title */
+.video-overlay h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+
+  animation: fadeUp 1s ease;
+}
+
+/* Subtitle */
+.video-overlay p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  line-height: 1.7;
+
+  margin-bottom: 25px;
+}
+
+/* Button */
+.video-overlay button {
+  padding: 14px 30px;
+
+  border: none;
+  border-radius: 40px;
+
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.video-overlay button:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================
+   LEFT / RIGHT BUTTONS
+========================================= */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-size: 28px;
+
+  cursor: pointer;
+  z-index: 10;
+
+  transition: 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* Left */
+.carousel-btn.left {
+  left: 20px;
+}
+
+/* Right */
+.carousel-btn.right {
+  right: 20px;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+  .video-carousel {
+    height: 75vh;
+  }
+
+  .video-overlay h1 {
+    font-size: 3rem;
+  }
+
+  .video-overlay p {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .video-carousel {
+    width: 94%;
+    height: 65vh;
+
+    margin: 25px auto;
+    border-radius: 20px;
+  }
+
+  .video-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .video-overlay p {
+    font-size: 0.95rem;
+  }
+
+  .video-overlay button {
+    padding: 12px 22px;
+    font-size: 0.9rem;
+  }
+
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+
+    font-size: 22px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .video-carousel {
+    height: 55vh;
+  }
+
+  .video-overlay h1 {
+    font-size: 1.5rem;
+  }
+
+  .video-overlay p {
+    font-size: 0.85rem;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+
+    font-size: 18px;
+  }
+}
+
+
+/* PLAY / PAUSE BUTTON */
+
+.play-pause-btn {
+  position: absolute;
+
+  bottom: 25px;
+  right: 25px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-size: 22px;
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  transition: 0.3s;
+}
+
+.play-pause-btn:hover {
+  background: rgba(255,255,255,0.35);
+  transform: scale(1.08);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .play-pause-btn {
+    width: 45px;
+    height: 45px;
+
+    font-size: 18px;
+
+    bottom: 18px;
+    right: 18px;
+  }
+}

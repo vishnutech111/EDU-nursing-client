@@ -87,11 +87,30 @@ import "./Blogs.css";
 import axios from "axios";
 import N1 from "../assets/nursing1.png";
 import N2 from "../assets/nursing2.png";
-import N3 from "../assets/home.png"
+import N3 from "../assets/home.png" 
+import edu1 from "../assets/bsc nursing .mp4"
+import edu2 from "../assets/EDU INDIAN NURSING ACADEMY (1).mp4"
 const carouselImages = [
  N1,
 N2,
 N3
+];
+
+
+const videoSlides = [
+  {
+    video:
+      edu1,
+    title: "Learn Nursing Profession",
+    subtitle: "Build your future with top universities",
+  },
+
+  {
+    video:
+      edu2,
+    title: "Admission Guidance",
+    subtitle: "Trusted support for nursing admissions",
+  },
 ];
 
 const Blogs = () => {
@@ -120,6 +139,37 @@ const Blogs = () => {
     return () => clearInterval(interval);
   }, []);
 
+
+
+  const [videoCurrent, setVideoCurrent] = useState(0);
+
+const nextVideo = () => {
+  setVideoCurrent((prev) => (prev + 1) % videoSlides.length);
+};
+
+const prevVideo = () => {
+  setVideoCurrent(
+    (prev) => (prev - 1 + videoSlides.length) % videoSlides.length
+  );
+};
+
+
+
+
+const [isPlaying, setIsPlaying] = useState(true);
+
+useEffect(() => {
+  const videos = document.querySelectorAll(".video-slide video");
+
+  videos.forEach((video, index) => {
+    if (index === videoCurrent && isPlaying) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+}, [videoCurrent, isPlaying]);
+
   return (
     <div className="blog-page">
 
@@ -138,6 +188,66 @@ const Blogs = () => {
           <p>Latest Updates & Insights from Technowin</p>
         </div>
       </div>
+
+{/* ===== FULL VIDEO CAROUSEL ===== */}
+{/* ===== FULL VIDEO CAROUSEL ===== */}
+<section className="video-carousel">
+
+  <div
+    className="video-slider"
+    style={{
+      transform: `translateX(-${videoCurrent * 100}%)`,
+    }}
+  >
+
+    {videoSlides.map((slide, index) => (
+      <div className="video-slide" key={index}>
+
+       <video
+  src={slide.video}
+  autoPlay={index === videoCurrent && isPlaying}
+  
+  loop
+  playsInline
+  controls={false}
+/>
+
+
+        <div className="video-overlay">
+          
+          
+
+       
+        </div>
+
+      </div>
+    ))}
+
+  </div>
+
+  {/* LEFT BUTTON */}
+  <button className="carousel-btn left" onClick={prevVideo}>
+    ❮
+  </button>
+
+  {/* RIGHT BUTTON */}
+  <button className="carousel-btn right" onClick={nextVideo}>
+    ❯
+  </button>
+
+  {/* PLAY / PAUSE BUTTON */}
+<button
+  className="play-pause-btn"
+  onClick={() => setIsPlaying(!isPlaying)}
+>
+  {isPlaying ? "❚❚" : "▶"}
+</button>
+
+</section>
+
+
+
+
 
       {/* ===== BLOG GRID ===== */}
       <section className="blog-section">
