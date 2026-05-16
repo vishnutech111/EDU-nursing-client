@@ -87,9 +87,12 @@ import "./Blogs.css";
 import axios from "axios";
 import N1 from "../assets/nursing1.png";
 import N2 from "../assets/nursing2.png";
-import N3 from "../assets/home.png" 
-import edu1 from "../assets/bsc nursing .mp4"
-import edu2 from "../assets/EDU INDIAN NURSING ACADEMY (1).mp4"
+import N3 from "../assets/home.png" ;
+import edu1 from "../assets/bsc nursing .mp4";
+import edu2 from "../assets/EDU INDIAN NURSING ACADEMY (1).mp4";
+import edu3 from "../assets/EDU.vdo.mp4";
+import edu4 from "../assets/EDU.vdonew.mp4";
+import edu5 from "../assets/edu indian .mp4"
 const carouselImages = [
  N1,
 N2,
@@ -108,6 +111,27 @@ const videoSlides = [
   {
     video:
       edu2,
+    title: "Admission Guidance",
+    subtitle: "Trusted support for nursing admissions",
+  },
+
+   {
+    video:
+      edu3,
+    title: "Admission Guidance",
+    subtitle: "Trusted support for nursing admissions",
+  },
+
+   {
+    video:
+      edu4,
+    title: "Admission Guidance",
+    subtitle: "Trusted support for nursing admissions",
+  },
+
+   {
+    video:
+      edu5,
     title: "Admission Guidance",
     subtitle: "Trusted support for nursing admissions",
   },
